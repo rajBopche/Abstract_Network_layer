@@ -5,7 +5,7 @@ import kotlinx.coroutines.withContext
 import network.Result
 
 //This method wraps the real api call in try-catch block and return a network.Result accordingly
-suspend fun <T> safeLaunch(block: suspend () -> T): Result<T> {
+suspend fun <T> safeApiCall(block: suspend () -> T): Result<T> {
 
     val result = Result<T>()
 

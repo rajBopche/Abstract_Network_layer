@@ -3,14 +3,14 @@ package network
 import apiconfig.ApiClient
 import model.User
 import model.UserRepo
-import utils.safeLaunch
+import utils.safeApiCall
 
 class DataManager {  //This class handles all Data Request and Manipulation
 
     private val networkApiClient = ApiClient.apiClient
 
     suspend fun getUsers(): List<User>? {
-        val result = safeLaunch {
+        val result = safeApiCall {
             // this block is suspended until the result arrives
             networkApiClient.getUsers()
         }
@@ -21,7 +21,7 @@ class DataManager {  //This class handles all Data Request and Manipulation
     }
 
     suspend fun getUserRepos(userName: String): List<UserRepo>? {
-        val result = safeLaunch {
+        val result = safeApiCall {
             // this block is suspended until the result arrives
             networkApiClient.getUserRepos(userName)
         }

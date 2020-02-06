@@ -1,6 +1,8 @@
+package model
+
 import com.google.gson.annotations.SerializedName
 
-open class BaseNetworkResponse {
+open class BaseModel { // some common fields which are present in all model
 
     @SerializedName("id")
     var id: Int = 0

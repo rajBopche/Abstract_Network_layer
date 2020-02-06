@@ -1,3 +1,7 @@
+package apiconfig
+
+import model.User
+import model.UserRepo
 import retrofit2.http.GET
 import retrofit2.http.Path
 

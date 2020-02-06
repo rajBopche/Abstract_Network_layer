@@ -1,18 +1,19 @@
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
+import network.DataManager
 
-fun main() {  //this class can be your ViewModel/Activity
+fun main() {  //below code block can be in your ViewModel
+
     val mDataManager = DataManager()
+
     runBlocking(Dispatchers.IO) {
-        println("\n\n=============== Printing Users =======================\n\n")
-        mDataManager.getUsers()?.forEach {
-            println("${it.name}\n")
-        }
-        println("\n\n=============== Printing User Repo =======================\n\n")
-        mDataManager.getUserRepos("mojombo")?.forEach {
-            println("${it.name}\n")
-        }
+        //block main thread till all network calls are not completed
+
+        val userList = mDataManager.getUsers() //get users list
+
+        val userRepoList = mDataManager.getUserRepos("mojombo")// get user repos list
     }
+
 }
 
 

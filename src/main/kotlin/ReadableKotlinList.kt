@@ -1,3 +1,0 @@
-class ReadableKotlinList<T> {
-
-}
